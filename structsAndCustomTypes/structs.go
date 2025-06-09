@@ -21,19 +21,23 @@ func (u *user) outputUserDetails() {
 	fmt.Println(u.firstName, u.lastName, u.birthDate)
 }
 
+func newUser(firstName, lastName, birthdate string) *user {
+	return &user{
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthdate,
+		createdAt: time.Now(),
+	}
+}
+
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var appUser user
+	var appUser *user
 
-	appUser = user{
-		firstName: userFirstName,
-		lastName:  userLastName,
-		birthDate: userBirthdate,
-		createdAt: time.Now(),
-	}
+	appUser = newUser(userFirstName, userLastName, userBirthdate)
 
 	/*appUser = user{
 		userFirstName,    Another way to write structs: no explicit key if order is the same
