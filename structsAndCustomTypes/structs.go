@@ -20,6 +20,12 @@ func main() {
 		return
 	}
 
+	admin := user.NewAdmin("test@example.com", "test123")
+
+	admin.OutputUserDetails()
+	admin.ClearUserName()
+	admin.OutputUserDetails()
+
 	/*appUser = user{
 		userFirstName,    Another way to write structs: no explicit key if order is the same
 		userLastName,
